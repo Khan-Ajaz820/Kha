@@ -1,0 +1,3566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<link rel="preload" href="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/Noto-COLRv1.ttf" as="font" type="font/ttf" crossorigin>
+
+<link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Mosaic Generator | Amosix</title>
+    <!-- Primary Meta Tags -->
+<meta name="title" content="Emoji Mosaic Generator | Make your image from small emojis.">
+<meta name="description" content="Make your image from small emoji called emoji mosaic for free of cost.">
+<meta name="keywords" content="emoji mosaic generator, photo from emoji, emoji art maker, photo to emoji, emoji converter, AI emoji mosaic, emoji editor, image to emoji mosaic">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Emoji Mosaic Generator – Create Stunning Emoji Art Online">
+<meta property="og:description" content="Transform any image into high-quality emoji mosaic art. 100% free tool with instant results.">
+<meta property="og:image" content="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/banner.webp">
+<meta property="og:url" content="https://amosix.in">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Emoji Mosaic Generator – Create Stunning Emoji Art Online">
+<meta name="twitter:description" content="Create beautiful emoji mosaic images instantly using our free online tool.">
+<meta name="twitter:image" content="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/banner.webp">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://amosix.in">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/favicon.webp">
+
+<!-- Robots -->
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+
+<!-- Language -->
+<meta name="language" content="English">
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+@font-face {
+  font-family: 'NotoEmoji';
+  src: url('https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/Noto-COLRv1.ttf')
+       format('truetype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+        
+        /* Smooth Scrolling - MINIMAL FIX - Add this at the top of your CSS */
+
+/* Basic smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* iOS momentum scrolling only */
+body {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent rubber band effect on mobile (optional) */
+body {
+    overscroll-behavior-y: contain;
+}
+
+/* Optimize touch response */
+a, button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        
+        
+       
+       
+        
+        
+        
+        
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 12, 41, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 12, 41, 0.98);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-bottom-color: rgba(0, 212, 255, 0.6);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Righteous', cursive;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #8a2be2, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-logo::before {
+            content: '✨ ';
+            -webkit-text-fill-color: #00d4ff;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 45px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #8a2be2, #00d4ff);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover {
+            color: #00d4ff;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #8a2be2, #00d4ff);
+            border: 2px solid #00d4ff;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, #8a2be2, #00d4ff);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(9px, 9px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(9px, -9px);
+        }
+
+        /* Hero Section */
+.hero {
+    /* Use dynamic viewport height for modern browsers */
+    min-height: 100dvh; /* Dynamic - adjusts for browser chrome */
+    min-height: 100svh; /* Fallback - small viewport height */
+    min-height: calc(var(--vh, 1vh) * 100); /* JS fallback for older browsers */
+    
+    height: auto; /* Allow expansion if needed */
+    max-height: 100dvh; /* Prevent growing too large */
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    
+    /* Adjust padding to account for navbar */
+    padding: 100px 40px 40px;
+}
+
+/* Ensure container fits within viewport */
+.hero .container {
+    max-height: calc(100dvh - 140px); /* Viewport minus navbar and padding */
+    max-height: calc(100svh - 140px); /* Fallback */
+    max-height: calc(var(--vh, 1vh) * 100 - 140px); /* JS fallback */
+    
+    overflow: visible; /* Allow content to be seen */
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure hero content scales properly */
+.hero-content {
+    flex-shrink: 1; /* Allow shrinking */
+    min-height: 0; /* Allow flexbox to shrink below content size */
+}
+
+.slider-wrapper {
+    flex-shrink: 1; /* Allow shrinking */
+    min-height: 0; /* Allow flexbox to shrink below content size */
+}
+
+        .bg-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent),
+                radial-gradient(1px 1px at 30% 80%, white, transparent);
+            background-size: 200% 200%;
+            animation: stars 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes stars {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #00d4ff;
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none;
+            animation: particleFloat 12s ease-in-out infinite;
+            box-shadow: 0 0 10px #00d4ff;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { 
+                transform: translate(30px, -100vh);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-title {
+            font-family: 'Righteous', cursive;
+            font-size: clamp(1.8rem, 8vw, 5rem);
+            color: #fff;
+            text-shadow: 
+                0 0 30px rgba(138, 43, 226, 0.8),
+                0 5px 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero-title .highlight {
+            color: #00d4ff;
+            text-shadow: 
+                0 0 40px rgba(0, 212, 255, 0.8),
+                0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.85rem, 2.5vw, 1.3rem);
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0.9;
+        }
+
+        .upload-btn {
+            position: relative;
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+            font-weight: 900;
+            color: #fff;
+            background: linear-gradient(135deg, #8a2be2, #00d4ff);
+            border: 3px solid #00d4ff;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 
+                0 0 30px rgba(0, 212, 255, 0.5),
+                0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'Righteous', cursive;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 0 50px rgba(0, 212, 255, 0.8),
+                0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .upload-btn::before {
+            content: '✨';
+            margin-right: 10px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .comparison-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            background: #000;
+            border-radius: 30px;
+            overflow: hidden;
+            cursor: ew-resize;
+            user-select: none;
+            box-shadow: 
+                0 0 80px rgba(138, 43, 226, 0.6),
+                0 30px 100px rgba(0, 0, 0, 0.8),
+                inset 0 0 60px rgba(138, 43, 226, 0.2);
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-container::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, #8a2be2, #00d4ff, #8a2be2);
+            border-radius: 30px;
+            z-index: -1;
+            animation: borderRotate 3s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .comparison-container:hover {
+            transform: scale(1.02);
+        }
+
+        .comparison-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 212, 255, 0.1) 50%,
+                transparent 100%
+            );
+            background-size: 100% 20px;
+            animation: scanline 2s linear infinite;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(200%); }
+        }
+
+        .comparison-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .image-after {
+            z-index: 1;
+        }
+
+        .image-before {
+            z-index: 2;
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+        }
+
+        .slider-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #00d4ff, #8a2be2, #00d4ff);
+            z-index: 3;
+            box-shadow: 
+                0 0 30px rgba(0, 212, 255, 0.8),
+                0 0 60px rgba(138, 43, 226, 0.6);
+            animation: lineGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 30px rgba(0, 212, 255, 0.8),
+                    0 0 60px rgba(138, 43, 226, 0.6);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 50px rgba(0, 212, 255, 1),
+                    0 0 100px rgba(138, 43, 226, 0.8);
+            }
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8a2be2, #00d4ff);
+            border: 5px solid #fff;
+            border-radius: 50%;
+            cursor: grab;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 50px rgba(0, 212, 255, 0.9),
+                0 0 100px rgba(138, 43, 226, 0.7),
+                0 10px 40px rgba(0, 0, 0, 0.6),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+            transition: transform 0.2s;
+            z-index: 4;
+        }
+
+        .slider-handle:active {
+            cursor: grabbing;
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
+        .handle-icon {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .handle-icon::before,
+        .handle-icon::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .handle-icon::before {
+            border-width: 12px 18px 12px 0;
+            border-color: transparent #fff transparent transparent;
+            left: 18px;
+        }
+
+        .handle-icon::after {
+            border-width: 12px 0 12px 18px;
+            border-color: transparent transparent transparent #fff;
+            right: 18px;
+        }
+
+        .badge {
+            position: absolute;
+            padding: 10px 25px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            z-index: 4;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid;
+            font-family: 'Righteous', cursive;
+        }
+
+        .badge-before {
+            top: 25px;
+            left: 25px;
+            border-color: #8a2be2;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.95), rgba(138, 43, 226, 0.7));
+            box-shadow: 
+                0 5px 25px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(138, 43, 226, 0.6);
+        }
+
+        .badge-after {
+            top: 25px;
+            right: 25px;
+            border-color: #00d4ff;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.95), rgba(0, 212, 255, 0.7));
+            box-shadow: 
+                0 5px 25px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .instruction-hint {
+            position: absolute;
+            bottom: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0.9;
+            text-shadow: 
+                0 0 20px rgba(0, 212, 255, 0.8),
+                2px 2px 8px rgba(0, 0, 0, 0.5);
+            white-space: nowrap;
+            font-family: 'Righteous', cursive;
+            letter-spacing: 1px;
+        }
+
+        .instruction-hint::before {
+            content: '⚡';
+            margin-right: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .corner-accent {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 3px solid;
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        .corner-tl {
+            top: 15px;
+            left: 15px;
+            border-right: none;
+            border-bottom: none;
+            border-color: #00d4ff;
+            border-top-left-radius: 10px;
+        }
+
+        .corner-tr {
+            top: 15px;
+            right: 15px;
+            border-left: none;
+            border-bottom: none;
+            border-color: #00d4ff;
+            border-top-right-radius: 10px;
+        }
+
+        .corner-bl {
+            bottom: 15px;
+            left: 15px;
+            border-right: none;
+            border-top: none;
+            border-color: #8a2be2;
+            border-bottom-left-radius: 10px;
+        }
+
+        .corner-br {
+            bottom: 15px;
+            right: 15px;
+            border-left: none;
+            border-top: none;
+            border-color: #8a2be2;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-container {
+                padding: 15px 25px;
+            }
+
+            .nav-logo {
+                font-size: 1.5rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 300px;
+                height: calc(100vh - 70px);
+                background: rgba(15, 12, 41, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 40px 30px;
+                gap: 30px;
+                border-left: 2px solid rgba(0, 212, 255, 0.3);
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+                transition: right 0.4s ease;
+                align-items: flex-start;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-link {
+                font-size: 1.1rem;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+                padding: 15px 30px;
+            }
+        }
+
+@media (max-width: 1024px) {
+    .hero {
+        min-height: 100dvh;
+        min-height: 100svh;
+        min-height: calc(var(--vh, 1vh) * 100);
+        padding: 90px 30px 20px;
+    }
+    
+    .hero .container {
+        max-height: calc(100dvh - 110px);
+        max-height: calc(100svh - 110px);
+        max-height: calc(var(--vh, 1vh) * 100 - 110px);
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .slider-wrapper {
+        max-width: 450px;
+    }
+}
+
+        @media (max-width: 768px) {
+            .hero {
+        min-height: 100dvh;
+        min-height: 100svh;
+        min-height: calc(var(--vh, 1vh) * 100);
+        padding: 80px 20px 20px;
+    }
+    
+    .hero .container {
+        max-height: calc(100dvh - 100px);
+        max-height: calc(100svh - 100px);
+        max-height: calc(var(--vh, 1vh) * 100 - 100px);
+    }
+
+            .container {
+                gap: 30px;
+            }
+
+            .slider-wrapper {
+                max-width: 380px;
+            }
+
+            .slider-handle {
+                width: 65px;
+                height: 65px;
+            }
+
+            .handle-icon::before {
+                border-width: 10px 14px 10px 0;
+                left: 15px;
+            }
+
+            .handle-icon::after {
+                border-width: 10px 0 10px 14px;
+                right: 15px;
+            }
+
+            .badge {
+                padding: 7px 16px;
+                font-size: 0.75rem;
+            }
+
+            .instruction-hint {
+                font-size: 0.95rem;
+                bottom: -45px;
+            }
+
+            .corner-accent {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 12px 20px;
+            }
+
+            .nav-logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-menu {
+                width: 100%;
+                top: 60px;
+                height: calc(100vh - 60px);
+            }
+
+            .menu-toggle span {
+                width: 25px;
+            }
+
+            .hero {
+        min-height: 100dvh;
+        min-height: 100svh;
+        min-height: calc(var(--vh, 1vh) * 100);
+        padding: 75px 15px 15px;
+    }
+    
+    .hero .container {
+        max-height: calc(100dvh - 90px);
+        max-height: calc(100svh - 90px);
+        max-height: calc(var(--vh, 1vh) * 100 - 90px);
+        gap: 25px;
+    }
+
+            .container {
+                gap: 25px;
+            }
+
+.slider-wrapper {
+        max-width: 100%;
+        max-height: 50vh; /* Limit height */
+    }
+
+.comparison-container {
+        max-height: 50vh;
+    }
+
+            .comparison-container::before {
+                border-radius: 20px;
+            }
+
+            .slider-handle {
+                width: 55px;
+                height: 55px;
+            }
+
+            .handle-icon::before {
+                border-width: 8px 11px 8px 0;
+                left: 13px;
+            }
+
+            .handle-icon::after {
+                border-width: 8px 0 8px 11px;
+                right: 13px;
+            }
+
+            .badge {
+                padding: 5px 12px;
+                font-size: 0.65rem;
+                top: 12px;
+            }
+
+            .badge-before {
+                left: 12px;
+            }
+
+            .badge-after {
+                right: 12px;
+            }
+
+            .instruction-hint {
+                font-size: 0.85rem;
+                bottom: -40px;
+            }
+
+            .corner-accent {
+                width: 22px;
+                height: 22px;
+            }
+
+            .corner-tl, .corner-tr {
+                top: 10px;
+            }
+
+            .corner-bl, .corner-br {
+                bottom: 10px;
+            }
+
+            .corner-tl, .corner-bl {
+                left: 10px;
+            }
+
+            .corner-tr, .corner-br {
+                right: 10px;
+            }
+
+            .upload-btn {
+                padding: 13px 35px;
+            }
+
+            .hero-title {
+                margin-bottom: 12px;
+            }
+
+            .hero-subtitle {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 390px) {
+.hero {
+        min-height: 100dvh;
+        min-height: 100svh;
+        min-height: calc(var(--vh, 1vh) * 100);
+        padding: 70px 12px 12px;
+    }
+    
+    .hero .container {
+        max-height: calc(100dvh - 82px);
+        max-height: calc(100svh - 82px);
+        max-height: calc(var(--vh, 1vh) * 100 - 82px);
+        gap: 20px;
+    }
+
+            .container {
+                gap: 20px;
+            }
+
+            .slider-handle {
+                width: 50px;
+                height: 50px;
+            }
+
+            .handle-icon::before {
+                border-width: 7px 10px 7px 0;
+                left: 12px;
+            }
+
+            .handle-icon::after {
+                border-width: 7px 0 7px 10px;
+                right: 12px;
+            }
+
+            .badge {
+                padding: 4px 10px;
+                font-size: 0.6rem;
+                top: 10px;
+            }
+
+            .badge-before {
+                left: 10px;
+            }
+
+            .badge-after {
+                right: 10px;
+            }
+
+            .instruction-hint {
+                font-size: 0.8rem;
+                bottom: -38px;
+            }
+
+            .corner-accent {
+                width: 20px;
+                height: 20px;
+            }
+
+            .upload-btn {
+                padding: 12px 30px;
+            }
+
+            .hero-title {
+                margin-bottom: 10px;
+            }
+
+            .hero-subtitle {
+                margin-bottom: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        
+/* Prevent content from being too large on small screens */
+@media (max-height: 600px) {
+    .hero-title {
+        font-size: clamp(1.5rem, 6vw, 3.5rem) !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.75rem, 2vw, 1.1rem) !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .upload-btn {
+        padding: 12px 30px !important;
+        font-size: clamp(0.85rem, 2vw, 1.2rem) !important;
+    }
+    
+    .comparison-container {
+        max-height: 40vh !important;
+    }
+    
+    .instruction-hint {
+        font-size: 0.8rem !important;
+        bottom: -35px !important;
+    }
+}
+
+/* Extra small height devices (landscape phones) */
+@media (max-height: 500px) {
+    .hero {
+        padding: 70px 15px 15px !important;
+    }
+    
+    .hero .container {
+        gap: 15px !important;
+    }
+    
+    .comparison-container {
+        max-height: 35vh !important;
+    }
+    
+    .badge {
+        padding: 5px 12px !important;
+        font-size: 0.65rem !important;
+    }
+}
+</style>
+
+
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Amosix</div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#gallery-sec" class="nav-link">Examples</a></li>
+                <li><a href="#features-sec" class="nav-link">Features</a></li>
+                <li><a href="#abt-tool" class="nav-link">About Tool</a></li>
+                <li><a href="https://blog.amosix.in"><button class="nav-cta">Blog</button></a></li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="bg-stars"></div>
+        
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 4.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 1.5s;"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Convert Your<br>
+                    Image Into<br>
+                    <span class="highlight">ART!!</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Build your images from thousands of tiny emojis (called <span class="highlight"><a href="https://blog.amosix.in/2025/12/emoji-mosaic-new-type-of-digital-art.html" style="color: yellow">emoji mosaic</a></span>)!!
+                </p>
+                <label for="imageUpload" class="upload-btn" style="cursor: pointer; display: inline-block;">Choose Image</label>
+<input type="file" id="imageUpload" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="slider-wrapper">
+                <div class="comparison-container" id="comparisonContainer">
+                    <img 
+                        src="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/comparison.webp" 
+                        alt="Emoji Mosaic" 
+                        class="comparison-image image-after"
+                    >
+                    
+                    <img 
+                        src="https://i.ibb.co/RT2RCt6t/IMG-20251118-122542.jpg" 
+                        alt="Original" 
+                        class="comparison-image image-before"
+                        id="imageBefore"
+                    >
+
+                    <div class="corner-accent corner-tl"></div>
+                    <div class="corner-accent corner-tr"></div>
+                    <div class="corner-accent corner-bl"></div>
+                    <div class="corner-accent corner-br"></div>
+
+                    <div class="slider-line" id="sliderLine">
+                        <div class="slider-handle">
+                            <div class="handle-icon"></div>
+                        </div>
+                    </div>
+
+                    <div class="badge badge-before">Original</div>
+                    <div class="badge badge-after">Emoji Art</div>
+                </div>
+
+                <div class="instruction-hint">Drag to compare magic</div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+ <!-- Compact Features Section - Add this between gallery and how-it-works sections -->
+<section class="compact-features" id="features-sec">
+    <div class="features-compact-container">
+        <div class="features-compact-header">
+            <h2 class="features-compact-title">
+                Quick <span class="highlight">Features</span>
+            </h2>
+            <p class="features-compact-subtitle">Features of our Tool</p>
+        </div>
+
+        <div class="features-grid-compact">
+            <div class="feature-item-compact">
+                <div class="feature-icon-compact">🚀</div>
+                <div class="feature-text-compact">
+                    <h4>No Sign Up</h4>
+                    <p>Start instantly</p>
+                </div>
+            </div>
+
+            <div class="feature-item-compact">
+                <div class="feature-icon-compact">💯</div>
+                <div class="feature-text-compact">
+                    <h4>100% Free</h4>
+                    <p>Always free</p>
+                </div>
+            </div>
+
+            <div class="feature-item-compact">
+                <div class="feature-icon-compact">🔒</div>
+                <div class="feature-text-compact">
+                    <h4>Privacy First</h4>
+                    <p>No server uploads</p>
+                </div>
+            </div>
+
+            <div class="feature-item-compact">
+                <div class="feature-icon-compact">💎</div>
+                <div class="feature-text-compact">
+                    <h4>2K Quality</h4>
+                    <p>HD resolution</p>
+                </div>
+            </div>
+
+            <div class="feature-item-compact">
+                <div class="feature-icon-compact">⚡</div>
+                <div class="feature-text-compact">
+                    <h4>Lightning Fast</h4>
+                    <p>3sec generation</p>
+                </div>
+            </div>
+
+            <div class="feature-item-compact">
+                <div class="feature-icon-compact">📥</div>
+                <div class="feature-text-compact">
+                    <h4>Easy Save</h4>
+                    <p>One-click download</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    
+   
+   
+   
+   <section class="gallery" id="gallery-sec">
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h2 class="gallery-title">
+                Explore <span class="highlight">Examples</span>
+            </h2>
+            <p class="gallery-subtitle">Example of Emoji Mosaic<br>(click on image for detail preview & zoom to view real detail)</p>
+        </div>
+
+        <div class="gallery-slider-wrapper">
+            <button class="slider-nav slider-prev" id="sliderPrev">
+                <span>‹</span>
+            </button>
+
+            <div class="gallery-slider" id="gallerySlider">
+                <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-slide">
+                        <div class="slide-card" data-image="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/orignal-1.jpg">
+    <img loading="lazy" src="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/gallery-1.webp" alt="Creation 1">
+                            <div class="slide-overlay">
+                                <span class="overlay-icon">🎨</span>
+                                <span class="overlay-text">View Full</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-slide">
+                        <div class="slide-card" data-image="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/orignal-2.jpg">
+    <img loading="lazy" src="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/gallery-2.webp" alt="Creation 2">
+                            <div class="slide-overlay">
+                                <span class="overlay-icon">✨</span>
+                                <span class="overlay-text">View Full</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-slide">
+                        <div class="slide-card" data-image="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/orignal-3.jpg">
+    <img loading="lazy" src="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/gallarey-3.webp" alt="Creation 3">
+                            <div class="slide-overlay">
+                                <span class="overlay-icon">🚀</span>
+                                <span class="overlay-text">View Full</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-slide">
+                        <div class="slide-card" data-image="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/orignal-4.jpg">
+    <img loading="lazy" src="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/gallery-4.webp" alt="Creation 4">
+                            <div class="slide-overlay">
+                                <span class="overlay-icon">⚡</span>
+                                <span class="overlay-text">View Full</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-slide">
+                        <div class="slide-card" data-image="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/orignal-5.jpg">
+    <img loading="lazy" src="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/gallery-5.webp" alt="Creation 5">
+                            <div class="slide-overlay">
+                                <span class="overlay-icon">💎</span>
+                                <span class="overlay-text">View Full</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-slide">
+                        <div class="slide-card" data-image="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/orignal-6.jpg">
+    <img loading="lazy" src="https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/gallery-6.webp" alt="Creation 6">
+                            <div class="slide-overlay">
+                                <span class="overlay-icon">🌟</span>
+                                <span class="overlay-text">View Full</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-nav slider-next" id="sliderNext">
+                <span>›</span>
+            </button>
+        </div>
+
+        <div class="slider-dots" id="sliderDots"></div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="how-it-works" id="how-it">
+    <div class="how-container">
+        <div class="how-header">
+            <h2 class="how-title">
+                How It <span class="highlight">Works</span>
+            </h2>
+            <p class="how-subtitle">Create your Emoji Mosaic in 4 simple steps.<br>View detailed <a href="https://blog.amosix.in/2025/12/create-stunning-emoji-mosaics-in-5-easy.html" style="color: yellow">guide here.</a></p>
+        </div>
+
+        <div class="steps-wrapper">
+            <div class="step-item" data-step="1">
+                <div class="step-number-wrapper">
+                    <div class="step-circle">
+                        <span class="step-number">01</span>
+                        <div class="circle-glow"></div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                
+                <div class="step-content">
+                    <div class="step-icon-box">
+                        <div class="icon-upload">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="step-text">
+                        <h3 class="step-title">Choose & Upload</h3>
+                        <p class="step-description">Select your favourite image from your device and upload it</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-item" data-step="2">
+                <div class="step-number-wrapper">
+                    <div class="step-circle">
+                        <span class="step-number">02</span>
+                        <div class="circle-glow"></div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                
+                <div class="step-content">
+                    <div class="step-icon-box">
+                        <div class="icon-crop">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path>
+                                <path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="step-text">
+                        <h3 class="step-title">Crop Appropriately</h3>
+                        <p class="step-description">Crop and adjust your image to focus on the perfect area of image for mosaic</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-item" data-step="3">
+                <div class="step-number-wrapper">
+                    <div class="step-circle">
+                        <span class="step-number">03</span>
+                        <div class="circle-glow"></div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                
+                <div class="step-content">
+                    <div class="step-icon-box">
+                        <div class="icon-magic">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="step-text">
+                        <h3 class="step-title">Generate Instantly</h3>
+                        <p class="step-description">Your stunning emoji mosaic will be generated in 2-sec </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-item" data-step="4">
+                <div class="step-number-wrapper">
+                    <div class="step-circle">
+                        <span class="step-number">04</span>
+                        <div class="circle-glow"></div>
+                    </div>
+                </div>
+                
+                <div class="step-content">
+                    <div class="step-icon-box">
+                        <div class="icon-download">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="step-text">
+                        <h3 class="step-title">Download in 2K</h3>
+                        <p class="step-description">Download your beautiful emoji mosaic at 2K resolution for free</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-wrapper">
+            <label for="imageUpload" class="how-cta-btn">Start Creating Now</label>
+            <p class="cta-note">No signup required • 100% Free</p>
+        </div>
+    </div>
+
+    
+</section>
+
+
+
+
+
+<section class="about-tool" id="abt-tool">
+    <div class="about-container">
+        <div class="about-header">
+            <h2 class="about-title">
+                About <span class="highlight">Emoji Mosaic & this tool</span>
+            </h2>
+            <p class="about-subtitle">Know About Emoji Mosaic & this tool</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1: What It Does -->
+            <div class="feature-card" data-feature="1">
+                <div class="feature-bg-glow"></div>
+                <div class="feature-corner corner-tl"></div>
+                <div class="feature-corner corner-tr"></div>
+                <div class="feature-corner corner-bl"></div>
+                <div class="feature-corner corner-br"></div>
+                
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon icon-transform">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M12 1v6m0 6v6m10-8h-6m-6 0H1"></path>
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    </div>
+                    <div class="icon-orbit orbit-1"></div>
+                    <div class="icon-orbit orbit-2"></div>
+                    <div class="icon-orbit orbit-3"></div>
+                </div>
+
+                <div class="feature-content">
+                    <h3 class="feature-title">What is EMOJI MOSAIC?</h3>
+                    <p class="feature-description">
+                        Emoji Mosaic is a modern type of digital art where your images are transformed or maked using very tiny emojis. This creates a unique and visually appealing image. In an emoji mosaic, every pixel of the photo is replaced by a tiny emoji that matches the color of that part of the image. When all these emojis are combined, they blend together and form a beautiful final picture.<br>
+
+This form of art is becoming very popular nowadays on social media because of its unique look. When you zoom out, the emoji mosaic looks like your original image, but when you zoom in, you can clearly see each individual emoji tile.
+                    </p>
+                    
+                    <div class="use-cases">
+                        <div class="use-case-tag">Social Media Posts</div>
+                        <div class="use-case-tag">Profile Pictures</div>
+                        <div class="use-case-tag">Custom Gifts</div>
+                        <div class="use-case-tag">Wall Art</div>
+                        <div class="use-case-tag">Marketing Material</div>
+                        <div class="use-case-tag">Event Posters</div>
+                    </div>
+                </div>
+
+                <div class="feature-badge">
+                    <span>🎨 Emoji Mosaic</span>
+                </div>
+            </div>
+
+            <!-- Feature 2: Why It's Unique -->
+            <div class="feature-card" data-feature="2">
+                <div class="feature-bg-glow"></div>
+                <div class="feature-corner corner-tl"></div>
+                <div class="feature-corner corner-tr"></div>
+                <div class="feature-corner corner-bl"></div>
+                <div class="feature-corner corner-br"></div>
+                
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon icon-unique">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="icon-orbit orbit-1"></div>
+                    <div class="icon-orbit orbit-2"></div>
+                    <div class="icon-orbit orbit-3"></div>
+                </div>
+
+                <div class="feature-content">
+                    <h3 class="feature-title">Benefits of Emoji Mosaic</h3>
+                    <p class="feature-description">
+                        There are multiple use cases of emoji mosaic.
+Creativity on social media.
+On social media, e.g., Instagram, Twitter, Facebook — posts which are able to go viral.
+Other than posts, it can also be used as profile pics, gifts, wall art, marketing, etc.
+By using our tool, you can create mosaic free forever.
+No design experience needed.
+It automatically generates in seconds, and you can get very professional results in 1 sec.
+Overall, it is perfect for anyone wanting unique, shareable art.
+                    </p>
+                    
+                    <div class="unique-features">
+                        <div class="unique-item">
+                            <span class="unique-icon">⚡</span>
+                            <span class="unique-text">Lightning Fast</span>
+                        </div>
+                        
+                        <div class="unique-item">
+                            <span class="unique-icon">🔒</span>
+                            <span class="unique-text">100% Private</span>
+                        </div>
+                        <div class="unique-item">
+                            <span class="unique-icon">💎</span>
+                            <span class="unique-text">Premium Quality</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-badge">
+                    <span>✨ Features</span>
+                </div>
+            </div>
+
+            <!-- Feature 3: Why Use It -->
+            <div class="feature-card" data-feature="3">
+                <div class="feature-bg-glow"></div>
+                <div class="feature-corner corner-tl"></div>
+                <div class="feature-corner corner-tr"></div>
+                <div class="feature-corner corner-bl"></div>
+                <div class="feature-corner corner-br"></div>
+                
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon icon-use">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-orbit orbit-1"></div>
+                    <div class="icon-orbit orbit-2"></div>
+                    <div class="icon-orbit orbit-3"></div>
+                </div>
+
+                <div class="feature-content">
+                    <h3 class="feature-title">Privacy & Security</h3>
+                    <p class="feature-description">
+                        Your images never leave your device during generation. We protect your privacy 
+through 100% browser-based processing, meaning your personal images stay on your 
+device with zero server uploads. We don't store, track, or collect any user data—
+unlike other cloud-based tools, everything happens locally on your device. This 
+makes our tool perfect for creating mosaic from professional content, family photos, 
+or any sensitive images while maintaining complete privacy and control.<br><br>
+
+Therefore, your image is protected, resulting in us not storing, tracking, or collecting any data of our users unlike any other tools or software. We don’t use cloud-based tools and everything happens locally on your device.<br><br>
+
+On the other hand, this makes our tool perfect for those who want to create mosaic of their professional or personal images, etc.
+                    </p>
+                    
+                    <div class="use-cases">
+                        <div class="use-case-tag">100% private</div>
+                        <div class="use-case-tag">No upload to server</div>
+                        <div class="use-case-tag">fully runs on local device
+                        </div>
+                        </div>
+                </div>
+
+                <div class="feature-badge">
+                    <span>🚀 Privacy</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-cta">
+            
+            <button id="about-cta-btn" class="about-cta-btn"> 
+
+                <span class="btn-text">Experience The Magic</span>
+                <span class="btn-shine"></span>
+                
+            </button>
+            
+        </div>
+    </div>
+
+    <!-- Animated Background Elements -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+</section>
+
+
+
+
+<!-- Blog Teaser Section - Add this before the FAQ section -->
+<section class="blog-teaser">
+    <div class="blog-teaser-container">
+        <div class="blog-content-wrapper">
+            <div class="blog-text-content">
+                <span class="blog-label">📝 Our Blog</span>
+                <h2 class="blog-teaser-title">
+                    Get Latest Tips, Tricks & <span class="highlight">Creative Ideas</span>
+                </h2>
+                <p class="blog-teaser-description">
+                    Explore our blogs which contains tutorials, tips, latest idea etc to make your day perfect.
+                </p>
+                
+                <div class="blog-features-mini">
+                    <div class="blog-feature-mini">
+                        <span class="mini-icon">✨</span>
+                        <span>Tutorials</span>
+                    </div>
+                    <div class="blog-feature-mini">
+                        <span class="mini-icon">🎨</span>
+                        <span>Blog</span>
+                    </div>
+                    <div class="blog-feature-mini">
+                        <span class="mini-icon">💡</span>
+                        <span>Pro Tips & Tricks</span>
+                    </div>
+                </div>
+
+                <a href="https://blog.amosix.in" target="_blank" rel="noopener noreferrer" class="blog-cta-btn">
+                    <span class="btn-text">Visit Our Blog</span>
+                    <span class="btn-arrow">→</span>
+                    <span class="btn-shimmer"></span>
+                </a>
+            </div>
+
+            <div class="blog-visual">
+                <div class="blog-card-stack">
+                    <div class="stack-card card-1">
+                        <div class="card-icon">📖</div>
+                        <div class="card-title">Latest Articles</div>
+                    </div>
+                    <div class="stack-card card-2">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-title">Guides</div>
+                    </div>
+                    <div class="stack-card card-3">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-title">New Design</div>
+                    </div>
+                </div>
+                
+                <div class="floating-elements">
+                    <div class="float-emoji float-1">📝</div>
+                    <div class="float-emoji float-2">💡</div>
+                    <div class="float-emoji float-3">✨</div>
+                    <div class="float-emoji float-4">🎨</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background decoration -->
+    <div class="blog-bg-decoration">
+        <div class="decoration-circle circle-1"></div>
+        <div class="decoration-circle circle-2"></div>
+        <div class="decoration-line line-1"></div>
+        <div class="decoration-line line-2"></div>
+    </div>
+</section>
+  
+
+
+<!-- FAQ Section - Add this after the about-tool section -->
+<section class="faq-section" id="faq-sec">
+    <div class="faq-container">
+        <div class="faq-header">
+            <h2 class="faq-title">
+                Frequently Asked <span class="highlight">Questions</span>
+            </h2>
+            <p class="faq-subtitle">Know about this tool</p>
+        </div>
+
+        <div class="faq-wrapper">
+            <div class="faq-item" data-faq="1">
+                <div class="faq-question">
+                    <span class="faq-icon">❓</span>
+                    <h3>What is Emoji Mosaic?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>EMOJI MOSAIC is modern type of art image which is created by combining thousand of small emoji instead of pixels which results a beautiful art image.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="2">
+                <div class="faq-question">
+                    <span class="faq-icon">🔒</span>
+                    <h3>How to create a Emoji Mosaic? </h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can create Emoji mosaic at Amosix, upload you image - crop it appropiatly - click on Done - Your 2k mosaic ready click on Download button to download.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="3">
+                <div class="faq-question">
+                    <span class="faq-icon">📱</span>
+                    <h3>Does Amosix is free?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><p>Yes! Amosix is free to use without any pricing or sign up.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="4">
+                <div class="faq-question">
+                    <span class="faq-icon">⚡</span>
+                    <h3>Is Amosix is safe to use?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes!! 100% it is safe to use because it is build on client-side meaning no upload to server which results always your data on your device.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="5">
+                <div class="faq-question">
+                    <span class="faq-icon">🖼️</span>
+                    <h3>how much time will be taken to generate a mosaic?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>it depend on your devices performance usually it generates mosaic in 5s on all phone but it can vary on performance of device.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="6">
+                <div class="faq-question">
+                    <span class="faq-icon">💎</span>
+                    <h3>which image is supported by Amosix</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our platform support all known image format such as png, jpg, webp etc while output depend on image quality</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="7">
+                <div class="faq-question">
+                    <span class="faq-icon">✏️</span>
+                    <h3>What is resolution of output?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>you can freely generate and download Emoji Mosaic at 2k quality</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="8">
+                <div class="faq-question">
+                    <span class="faq-icon">🚀</span>
+                    <h3>Can i customize Emojis?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Currently No! You cannot customize emoji, our tool automatically place best emoji according to image color corresponding.</p>
+                </div>
+            </div>
+            <div class="faq-item" data-faq="9">
+                <div class="faq-question">
+                    <span class="faq-icon">🚀</span>
+                    <h3>Does signup is required? </h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No! You can generate mosaic free of cost. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Background Elements -->
+    <div class="faq-bg-shapes">
+        <div class="faq-shape faq-shape-1"></div>
+        <div class="faq-shape faq-shape-2"></div>
+        <div class="faq-shape faq-shape-3"></div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Footer Section - Add this at the end before closing </body> tag -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Footer Top -->
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">✨ Amosix</div>
+                <p class="footer-tagline">Transform your moments into emoji masterpieces</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com/amosix6" class="social-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/amosix_art" class="social-link" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/amosix.in" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com/@amosix-fun" class="social-link" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#features-sec">Features</a></li>
+                        <li><a href="#how-it">How It Works</a></li>
+                        <li><a href="#gallery-sec">Gallery</a></li>
+                        <li><a href="#abt-tool">About Tool</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Amosix</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="https://blog.amosix.in">Blog</a></li>
+                        
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="contact.html">Help</a></li>
+                        <li><a href="#faq-sec">FAQ</a></li>
+                        <li><a href="https://blog.amosix.in/2025/12/create-stunning-emoji-mosaics-in-5-easy.html">Tutorials</a></li>
+                        
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        
+                        <li><a href="license.html">Licenses</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>&copy; 2024 Amosix. All rights reserved.</p>
+            </div>
+            <div class="footer-badges">
+                <span class="footer-badge">🔒 Secure</span>
+                <span class="footer-badge">⚡ Fast</span>
+                <span class="footer-badge">💯 Free</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Background Effects -->
+    <div class="footer-glow"></div>
+</footer>
+
+
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+        <img src="" alt="Full view" class="lightbox-image" id="lightboxImage">
+    </div>
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <div class="lightbox-zoom-controls">
+        <button class="zoom-btn" id="zoomOut">−</button>
+        <button class="zoom-btn" id="zoomReset">⟲</button>
+        <button class="zoom-btn" id="zoomIn">+</button>
+    </div>
+</div>
+
+
+
+<!-- Hidden containers -->
+<canvas id="inputCanvas" style="display:none;"></canvas>
+<div id="mosaicContainer" style="display:none;"></div>
+<div id="mosaicLoader">
+  <div class="loader-spinner"></div>
+  <div class="loader-text">⏳ Generating Mosaic...</div>
+</div>
+<!-- Instagram Crop Modal (copy from your index.html) -->
+<div id="preCropModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); z-index:9999; align-items:center; justify-content:center;">
+  <div id="preCropBox" style="width:92vw; max-width:860px; height:88vh; background:#111; border-radius:18px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 0 40px rgba(0,0,0,0.6);">
+    
+    <div id="instaTopBar" style="height:50px; display:flex; align-items:center; justify-content:space-between; padding:0 18px; background:#111; border-bottom:1px solid #222; color:white; font-size:17px; font-weight:600;">
+      <span>Edit</span>
+      <div id="instaCloseBtn" style="font-size:24px; cursor:pointer; opacity:0.75;">✕</div>
+    </div>
+
+    <div id="cropperWrapper" style="flex:1; background:black; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+      <img id="preCropImage" style="max-width:100%; max-height:100%; object-fit:contain;">
+    </div>
+
+    <div id="instaToolbar" style="height:70px; display:flex; align-items:center; justify-content:center; gap:20px; background:#111; border-top:1px solid #222;">
+      <div class="insta-btn" id="rotateBtn" style="width:48px; height:48px; background:#1a1a1a; border:1px solid #333; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; color:white; cursor:pointer;">⟲</div>
+      <div class="insta-btn" id="flipHBtn" style="width:48px; height:48px; background:#1a1a1a; border:1px solid #333; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; color:white; cursor:pointer;">⇆</div>
+      <div class="insta-btn" id="flipVBtn" style="width:48px; height:48px; background:#1a1a1a; border:1px solid #333; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; color:white; cursor:pointer;">⇅</div>
+      <div class="insta-btn" id="zoomInBtn" style="width:48px; height:48px; background:#1a1a1a; border:1px solid #333; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; color:white; cursor:pointer;">＋</div>
+      <div class="insta-btn" id="zoomOutBtn" style="width:48px; height:48px; background:#1a1a1a; border:1px solid #333; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; color:white; cursor:pointer;">－</div>
+      <div class="insta-btn" id="resetBtn" style="width:48px; height:48px; background:#1a1a1a; border:1px solid #333; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; color:white; cursor:pointer;">⟳</div>
+    </div>
+
+    <div id="doneButtonContainer" style="padding:16px; background:#111; border-top:1px solid #222;">
+      <button id="preCropDone" style="width:100%; padding:14px; font-size:17px; font-weight:600; background:#0095f6; border-radius:12px; border:none; color:white; cursor:pointer;">Done</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================
+     MOSAIC MODAL - DESKTOP OPTIMIZED VERSION
+     Image on LEFT, Buttons on RIGHT for desktop
+     Mobile: Stacked layout (existing behavior)
+     ============================================ -->
+
+<!-- Mosaic Preview Modal -->
+<div class="mosaic-modal" id="mosaicModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(135deg, #0f0c29 0%, #24243e 100%); z-index:10001; flex-direction:column;">
+  
+  <!-- Modal Header -->
+  <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center; padding:20px 30px; background:rgba(255,255,255,0.05); backdrop-filter:blur(20px); border-bottom:2px solid rgba(0,212,255,0.3); flex-shrink:0;">
+    <div style="font-family:'Righteous'; font-size:1.5rem; color:#fff; display:flex; align-items:center; gap:10px; text-shadow:0 0 20px rgba(0,212,255,0.6);">
+      <span>✨</span>
+      <span>Your Emoji Mosaic</span>
+    </div>
+    <button id="mosaicCloseBtn" style="width:45px; height:45px; background:rgba(255,255,255,0.1); border:2px solid rgba(0,212,255,0.4); border-radius:50%; color:#fff; font-size:2rem; cursor:pointer; transition:all 0.3s ease; display:flex; align-items:center; justify-content:center; line-height:1;">×</button>
+  </div>
+
+  <!-- Modal Body - SIDE BY SIDE on Desktop -->
+  <div class="modal-body-wrapper" style="flex:1; display:flex; overflow:hidden;">
+    
+    <!-- LEFT SIDE: Canvas -->
+    <div class="modal-canvas-section" style="flex:1; display:flex; align-items:center; justify-content:center; padding:30px; overflow:hidden;">
+      <div id="canvasContainer" style="width:100%; max-width:500px; aspect-ratio:1080/1354; position:relative; cursor:pointer; transition:transform 0.3s ease;">
+        <canvas id="mosaicCanvas" style="width:100%; height:100%; object-fit:contain; border-radius:15px; box-shadow:0 20px 80px rgba(0,212,255,0.3), 0 0 60px rgba(138,43,226,0.4); border:3px solid transparent; background:linear-gradient(#000, #000) padding-box, linear-gradient(135deg, #8a2be2, #00d4ff) border-box; aspect-ratio:1080/1354;"></canvas>
+        <div class="click-hint" style="position:absolute; bottom:-35px; left:50%; transform:translateX(-50%); font-size:0.9rem; color:rgba(255,255,255,0.6); text-align:center; white-space:nowrap; pointer-events:none; animation:hintPulse 2s ease-in-out infinite;">👆 Tap for detailed preview</div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: Download Buttons (Desktop Only) -->
+    <div class="modal-buttons-section" style="width:380px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 30px; background:rgba(255,255,255,0.03); border-left:2px solid rgba(0,212,255,0.2);">
+      
+      <div style="width:100%; max-width:320px; display:flex; flex-direction:column; gap:20px;">
+        
+        <!-- Info Header -->
+        <div style="text-align:center; margin-bottom:10px;">
+          <div style="font-family:'Righteous'; font-size:1.8rem; color:#fff; margin-bottom:8px; text-shadow:0 0 20px rgba(0,212,255,0.5);">
+            Download Your Art
+          </div>
+          <div style="font-size:0.9rem; color:rgba(255,255,255,0.7); line-height:1.5;">
+            Choose your preferred quality
+          </div>
+        </div>
+
+        <!-- Standard Download Button -->
+        <button id="downloadStandard" style="width:100%; padding:18px 30px; font-weight:700; font-family:'Poppins',sans-serif; color:#fff; border-radius:30px; cursor:pointer; transition:all 0.3s ease; font-size:1.05rem; border:2px solid #00d4ff; display:flex; align-items:center; justify-content:center; gap:12px; box-shadow:0 5px 20px rgba(0,0,0,0.3); position:relative; overflow:hidden; background:linear-gradient(135deg,#8a2be2,#00d4ff);">
+          <span style="position:relative; z-index:2; font-size:1.3rem;">📥</span>
+          <span style="position:relative; z-index:2;">Download 2K</span>
+        </button>
+
+        <!-- Feature List for Standard -->
+        <div style="padding:0 15px; font-size:0.85rem; color:rgba(255,255,255,0.6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+            <span>✓</span>
+            <span>2K Resolution (2160px)</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+            <span>✓</span>
+            <span>Perfect for Social Media</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span>✓</span>
+            <span style="color:#00d4ff; font-weight:600;">100% Free Forever</span>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div style="height:1px; background:linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent); margin:10px 0;"></div>
+
+        <!-- Ultra HD Download Button -->
+        <button id="downloadUltraHD" style="width:100%; padding:18px 30px; font-weight:700; font-family:'Poppins',sans-serif; color:#fff; border-radius:30px; cursor:pointer; transition:all 0.3s ease; font-size:1.05rem; border:2px solid #ffa500; display:flex; align-items:center; justify-content:center; gap:12px; box-shadow:0 5px 20px rgba(0,0,0,0.3); position:relative; overflow:hidden; background:linear-gradient(135deg,#ff6b6b,#ffa500);">
+          
+          <span style="position:relative; z-index:2; font-size:1.3rem;">💎</span>
+          <span style="position:relative; z-index:2;">Ultra HD 4K</span>
+        </button>
+
+        <!-- Feature List for Ultra HD -->
+        <div style="padding:0 15px; font-size:0.85rem; color:rgba(255,255,255,0.6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+            <span>✓</span>
+            <span>4K Ultra HD (4320px)</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+            <span>✓</span>
+            <span>Maximum Detail & Quality</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span>✓</span>
+            <span style="color:#ffa500; font-weight:600;">Professional Print Quality</span>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+
+  </div>
+
+  <!-- Modal Footer - Mobile Only -->
+  <div class="modal-footer-mobile" style="display:none; flex-direction:column; gap:15px; padding:20px 30px; background:rgba(255,255,255,0.05); border-top:2px solid rgba(0,212,255,0.3); flex-shrink:0;">
+    
+    <!-- Download Buttons -->
+    <div class="download-buttons" style="display:flex; gap:15px; justify-content:center; align-items:center;">
+      
+      <!-- Standard Download Button (Mobile) -->
+      <button class="downloadStandard-mobile" style="flex:1; max-width:250px; padding:15px 30px; font-weight:700; font-family:'Poppins',sans-serif; color:#fff; border-radius:30px; cursor:pointer; transition:all 0.3s ease; font-size:1rem; border:2px solid #00d4ff; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 5px 20px rgba(0,0,0,0.3); position:relative; overflow:hidden; background:linear-gradient(135deg,#8a2be2,#00d4ff);">
+        <span style="position:relative; z-index:2;">📥</span>
+        <span style="position:relative; z-index:2;">Download 2K</span>
+      </button>
+
+      <!-- Ultra HD Download Button (Mobile) -->
+      <button class="downloadUltraHD-mobile" style="flex:1; max-width:250px; padding:15px 30px; font-weight:700; font-family:'Poppins',sans-serif; color:#fff; border-radius:30px; cursor:pointer; transition:all 0.3s ease; font-size:1rem; border:2px solid #ffa500; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 5px 20px rgba(0,0,0,0.3); position:relative; overflow:hidden; background:linear-gradient(135deg,#ff6b6b,#ffa500);">
+        
+        <span style="position:relative; z-index:2;">💎</span>
+        <span style="position:relative; z-index:2;">Ultra HD 4K</span>
+      </button>
+
+    </div>
+
+    <!-- Download Info -->
+    <div style="text-align:center; font-size:0.85rem; color:rgba(255,255,255,0.6); padding:10px 0; border-top:1px solid rgba(0,212,255,0.2);">
+      <span style="color:#00d4ff; font-weight:600;">2K Resolution</span> - Free Forever | 
+      <span style="color:#00d4ff; font-weight:600;">4K Ultra HD</span> - Maximum Quality
+    </div>
+
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+<script defer src="mosaic-worker.js"></script>
+<script defer src="wasm_glue.js"></script>
+<script defer src="script.js"></script>
+
+    <script>
+        
+// Dynamic Viewport Height Fix for Mobile Browsers
+(function() {
+    function setViewportHeight() {
+        // Get the actual viewport height
+        const vh = window.innerHeight * 0.01;
+        // Set CSS custom property
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    // Set on load
+    setViewportHeight();
+    
+    // Update on resize (debounced for performance)
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            setViewportHeight();
+        }, 250);
+    });
+    
+    // Update on orientation change (mobile)
+    window.addEventListener('orientationchange', function() {
+        // Wait for orientation to complete
+        setTimeout(setViewportHeight, 100);
+    });
+    
+    // iOS Safari fix - update when address bar hides/shows
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                setViewportHeight();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
+        
+        
+        
+     <!-- SUPER-OPTIMIZED CODE - MAXIMUM PERFORMANCE, MINIMUM VISUAL DIFFERENCE -->
+<!-- REPLACE ALL PREVIOUS OPTIMIZATION CODE WITH THIS -->
+
+// ==============================================
+// SUPER OPTIMIZATION V5 - BUGS FIXED
+// Fixed: Number animation clipping + Slider icon centering
+// ==============================================
+
+(function() {
+    'use strict';
+    
+    // Detect if device is mobile
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    
+    // Detect if device is low-end
+    function isLowEndDevice() {
+        const cpuCores = navigator.hardwareConcurrency || 2;
+        const deviceMemory = navigator.deviceMemory || 4;
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const slowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g');
+        const smallScreen = window.innerWidth < 768;
+        const isSlowDevice = performance && performance.memory ? 
+            (performance.memory.jsHeapSizeLimit < 1000000000) : false;
+        
+        const lowEndScore = 
+            (cpuCores <= 4 ? 1 : 0) +
+            (deviceMemory <= 4 ? 1 : 0) +
+            (slowConnection ? 1 : 0) +
+            (smallScreen ? 1 : 0) +
+            (isSlowDevice ? 1 : 0);
+        
+        return lowEndScore >= 2;
+    }
+    
+    // Lazy load heavy animations when elements are visible
+    function setupLazyAnimations() {
+        if ('IntersectionObserver' in window) {
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-visible');
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
+            
+            // Observe heavy sections
+            const heavySections = document.querySelectorAll('.gallery, .how-it-works, .about-tool, .blog-teaser, .faq-section');
+            heavySections.forEach(section => {
+                animationObserver.observe(section);
+            });
+        }
+    }
+    
+    // Apply MOBILE optimizations
+    function applyMobileOptimizations() {
+        const style = document.createElement('style');
+        style.id = 'mobile-super-optimizations';
+        style.textContent = `
+            /* ==========================================
+               SUPER MOBILE OPTIMIZATIONS V5
+               Bugs Fixed: Number clipping + Icon centering
+               ========================================== */
+            
+            /* ============================================
+               1. BACKDROP-FILTER OPTIMIZATION (30-40% gain)
+               ============================================ */
+            
+            /* Remove backdrop-filter from most elements */
+            .navbar,
+            .feature-card,
+            .step-content,
+            .slide-card,
+            .faq-item,
+            .social-link {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+            
+            /* Keep ONLY for blog cards but reduce blur strength */
+            .stack-card {
+                backdrop-filter: blur(8px) !important;
+                -webkit-backdrop-filter: blur(8px) !important;
+            }
+            
+            
+            /* ============================================
+               2. SHADOW OPTIMIZATION (15-20% gain)
+               ============================================ */
+            
+            /* Single-layer shadows instead of multiple */
+            .slider-handle {
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+            }
+            
+            .slider-nav,
+            .feature-icon,
+            .step-circle {
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+            }
+            
+            .comparison-container,
+            .slide-card:hover,
+            .feature-card:hover {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+            }
+            
+            .how-cta-btn,
+            .about-cta-btn,
+            .blog-cta-btn,
+            .nav-cta,
+            .upload-btn {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+            }
+            
+            .how-cta-btn:hover,
+            .about-cta-btn:hover,
+            .blog-cta-btn:hover,
+            .nav-cta:hover,
+            .upload-btn:hover {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+            }
+            
+            
+            /* ============================================
+               3. TEXT-SHADOW OPTIMIZATION (10-15% gain)
+               ============================================ */
+            
+            /* Simplified text shadows */
+            .hero-title,
+            .gallery-title,
+            .how-title,
+            .about-title,
+            .faq-title,
+            .blog-teaser-title {
+                text-shadow: 0 3px 12px rgba(0, 0, 0, 0.6) !important;
+            }
+            
+            .hero-title .highlight,
+            .gallery-title .highlight,
+            .how-title .highlight,
+            .about-title .highlight,
+            .faq-title .highlight,
+            .blog-teaser-title .highlight {
+                text-shadow: 0 3px 15px rgba(0, 212, 255, 0.7) !important;
+            }
+            
+            .step-title,
+            .feature-title,
+            .card-title,
+            .overlay-text {
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+            }
+            
+            
+            /* ============================================
+               4. GRADIENT OPTIMIZATION (15-20% gain)
+               ============================================ */
+            
+            /* Simplify complex gradients to 2-color */
+            .hero {
+                background: linear-gradient(135deg, #0f0c29 0%, #24243e 100%) !important;
+            }
+            
+            .gallery {
+                background: linear-gradient(180deg, #1a1533 0%, #0f0c29 100%) !important;
+            }
+            
+            .how-it-works {
+                background: linear-gradient(180deg, #0f0c29 0%, #24243e 100%) !important;
+            }
+            
+            .about-tool {
+                background: linear-gradient(180deg, #24243e 0%, #0f0c29 100%) !important;
+            }
+            
+            .blog-teaser {
+                background: linear-gradient(180deg, #24243e 0%, #1a1533 100%) !important;
+            }
+            
+            .faq-section {
+                background: linear-gradient(180deg, #302b63 0%, #24243e 100%) !important;
+            }
+            
+            .footer {
+                background: linear-gradient(180deg, #0f0c29 0%, #1a0a2e 100%) !important;
+            }
+            
+            
+            /* ============================================
+               5. ANIMATION TIMING OPTIMIZATION (10-15% gain)
+               ============================================ */
+            
+            /* Slow down decorative animations for less CPU usage */
+            .feature-icon {
+                animation-duration: 4s !important;
+            }
+            
+            .step-circle {
+                animation-duration: 4s !important;
+            }
+            
+            .feature-icon-compact {
+                animation-duration: 3s !important;
+            }
+            
+            .label-pulse {
+                animation-duration: 3s !important;
+            }
+            
+            /* Keep functional animations fast */
+            .gallery-track {
+                transition-duration: 0.5s !important;
+            }
+            
+            .faq-answer {
+                transition-duration: 0.4s !important;
+            }
+            
+            
+            /* ============================================
+               6. CSS CONTAIN OPTIMIZATION (20-25% gain)
+               ============================================ */
+            
+            /* Tell browser to optimize rendering */
+            .comparison-container,
+            .gallery-slider,
+            .gallery-slide,
+            .faq-item,
+            .feature-card,
+          /*  .step-item, */
+            .stack-card,
+            .slide-card {
+                contain: layout style paint;
+            }
+            
+            /* Apply contain only to step content, not the whole step-item */
+.step-content {
+    contain: layout style paint;
+}
+            
+            
+            /* ============================================
+               7. REMOVE INVISIBLE/HEAVY ELEMENTS
+               ============================================ */
+            
+            .bg-stars,
+            .particle,
+            .floating-emojis,
+            .floating-elements .float-emoji,
+            .bg-shapes,
+            .faq-bg-shapes,
+            .blog-bg-decoration,
+            .icon-orbit,
+            .btn-shine,
+            .btn-shimmer,
+            .circle-glow,
+            .feature-bg-glow,
+            .step-line::before,
+            .decoration-circle,
+            .decoration-line,
+            .shape,
+            .footer-glow,
+            .comparison-container::after {
+                display: none !important;
+            }
+            
+            /* Remove border rotation (keep border, remove animation) */
+            .comparison-container::before,
+            .slide-card::before {
+                animation: none !important;
+            }
+            
+            /* Simplify slider line glow */
+            .slider-line {
+                animation: none !important;
+                box-shadow: 0 0 15px rgba(0, 212, 255, 0.6) !important;
+            }
+            
+            
+            /* ============================================
+               8. LAZY LOAD ANIMATIONS (30-40% initial gain)
+               ============================================ */
+            
+            /* Hide heavy sections until visible */
+            .gallery:not(.animate-visible) *,
+            .how-it-works:not(.animate-visible) *,
+            .about-tool:not(.animate-visible) *,
+            .blog-teaser:not(.animate-visible) *,
+            .faq-section:not(.animate-visible) * {
+                animation-play-state: paused !important;
+            }
+            
+            /* Activate when visible */
+            .animate-visible * {
+                animation-play-state: running !important;
+            }
+            
+            
+            /* ============================================
+               9. GPU ACCELERATION OPTIMIZATION
+               ============================================ */
+            
+            /* Use GPU wisely for smooth animations */
+            .gallery-track,
+            .slider-line,
+            .slider-handle,
+            .faq-answer,
+            .menu-toggle {
+                transform: translateZ(0);
+                will-change: transform;
+            }
+            
+            /* CRITICAL FIX: Do NOT apply transform:none to these elements */
+            /* They need their transforms for positioning! */
+            .image-before,
+            .handle-icon,
+            .handle-icon::before,
+            .handle-icon::after,
+            .step-number,
+            .step-circle {
+                /* DO NOT override transforms - let original CSS handle it */
+            }
+            
+            /* Remove will-change from static elements */
+            .feature-card,
+            .step-item,
+            .faq-item {
+                will-change: auto !important;
+            }
+            
+            
+            /* ============================================
+               10. BORDER OPTIMIZATION (5-10% gain)
+               ============================================ */
+            
+            /* Simplify complex borders */
+            .feature-card,
+            .step-content,
+            .faq-item,
+            .stack-card {
+                border-width: 2px !important;
+            }
+            
+            
+           /* ============================================
+   BUG FIX 1: Step Numbers Overflow Fix
+   ============================================ */
+
+.step-circle {
+    overflow: visible !important;
+}
+
+.step-number-wrapper {
+    overflow: visible !important;
+}
+
+.step-item {
+    overflow: visible !important;
+}
+
+.step-number {
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+
+/* ============================================
+   BUG FIX 2: Slider Handle Icon Centering - FIXED
+   ============================================ */
+
+.slider-handle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.handle-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    width: 45px !important;
+    height: 45px !important;
+}
+
+/* Properly center the arrows vertically and horizontally */
+.handle-icon::before,
+.handle-icon::after {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.handle-icon::before {
+    left: 0 !important;
+    border-width: 12px 18px 12px 0 !important;
+    border-color: transparent #fff transparent transparent !important;
+}
+
+.handle-icon::after {
+    right: 0 !important;
+    border-width: 12px 0 12px 18px !important;
+    border-color: transparent transparent transparent #fff !important;
+}
+            
+            
+            /* ============================================
+               PERFORMANCE TWEAKS
+               ============================================ */
+            
+            /* Smooth scrolling */
+            body {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Optimize touch response */
+            a, button, .slider-handle, .faq-question {
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+            }
+            
+            /* Prevent reflow */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        `;
+        
+        document.head.appendChild(style);
+        
+        // Setup lazy loading
+        setupLazyAnimations();
+        
+        
+    }
+    
+    // Apply LOW-END optimizations
+    function applyLowEndOptimizations() {
+        const style = document.createElement('style');
+        style.id = 'low-end-super-optimizations';
+        style.textContent = `
+            /* ==========================================
+               LOW-END ADDITIONAL OPTIMIZATIONS
+               ========================================== */
+            
+            /* Further reduce blur for blog cards */
+            .stack-card {
+                backdrop-filter: blur(5px) !important;
+                -webkit-backdrop-filter: blur(5px) !important;
+            }
+            
+            /* Minimal shadows */
+            .slider-nav,
+            .feature-icon,
+            .step-circle,
+            .social-link:hover,
+            .dot.active {
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25) !important;
+            }
+            
+            /* Remove corner accents */
+            .corner-accent,
+            .feature-corner {
+                display: none !important;
+            }
+            
+            /* Slow down all decorative animations even more */
+            .feature-icon,
+            .step-circle,
+            .feature-icon-compact {
+                animation-duration: 5s !important;
+            }
+        `;
+        
+        document.head.appendChild(style);
+        
+        
+    }
+    
+    // Main execution
+    const isMobile = isMobileDevice();
+    const isLowEnd = isLowEndDevice();
+    
+    if (isLowEnd) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                applyMobileOptimizations();
+                applyLowEndOptimizations();
+            });
+        } else {
+            applyMobileOptimizations();
+            applyLowEndOptimizations();
+        }
+        
+        window.addEventListener('load', function() {
+            
+        });
+    } else if (isMobile) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyMobileOptimizations);
+        } else {
+            applyMobileOptimizations();
+        }
+        
+        window.addEventListener('load', function() {
+            
+        });
+    } else {
+        
+    }
+    
+})();
+
+        
+        
+        
+        
+        
+        
+        // Add ONLY this JavaScript - it won't affect your animations
+
+// Smooth scroll for anchor links only
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId !== '#' && targetId !== '') {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// That's all! No other code needed
+        
+        
+        
+        
+        
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+
+    // Close menu when clicking a nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Comparison slider functionality
+    const container = document.getElementById('comparisonContainer');
+    const imageBefore = document.getElementById('imageBefore');
+    const sliderLine = document.getElementById('sliderLine');
+    let isDragging = false;
+
+    function updateSlider(x) {
+        const rect = container.getBoundingClientRect();
+        let position = ((x - rect.left) / rect.width) * 100;
+        position = Math.max(0, Math.min(100, position));
+        
+        imageBefore.style.clipPath = `polygon(0 0, ${position}% 0, ${position}% 100%, 0 100%)`;
+        sliderLine.style.left = `${position}%`;
+    }
+
+    // Mouse events for slider
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        updateSlider(e.clientX);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            updateSlider(e.clientX);
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    // Touch events for mobile slider
+    container.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        updateSlider(e.touches[0].clientX);
+    });
+
+    document.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            updateSlider(e.touches[0].clientX);
+        }
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+    
+    
+    
+    // Gallery Slider Functionality
+const track = document.getElementById('galleryTrack');
+const prevBtn = document.getElementById('sliderPrev');
+const nextBtn = document.getElementById('sliderNext');
+const dotsContainer = document.getElementById('sliderDots');
+const slides = document.querySelectorAll('.gallery-slide');
+
+let currentIndex = 0;
+let slidesPerView = 3;
+let slideGap = 30;
+
+function updateSlidesPerView() {
+    if (window.innerWidth <= 768) {
+        slidesPerView = 1;
+        slideGap = 20;
+    } else if (window.innerWidth <= 1024) {
+        slidesPerView = 2;
+        slideGap = 30;
+    } else {
+        slidesPerView = 3;
+        slideGap = 30;
+    }
+}
+
+function createDots() {
+    dotsContainer.innerHTML = '';
+    const totalDots = Math.ceil(slides.length - slidesPerView + 1);
+    
+    for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+}
+
+function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+function goToSlide(index) {
+    const maxIndex = slides.length - slidesPerView;
+    currentIndex = Math.max(0, Math.min(index, maxIndex));
+    
+    const slideWidth = track.offsetWidth / slidesPerView;
+    const offset = -(currentIndex * (slideWidth + slideGap));
+    
+    track.style.transform = `translateX(${offset}px)`;
+    updateDots();
+}
+
+function nextSlide() {
+    const maxIndex = slides.length - slidesPerView;
+    if (currentIndex < maxIndex) {
+        currentIndex++;
+        goToSlide(currentIndex);
+    }
+}
+
+function prevSlide() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        goToSlide(currentIndex);
+    }
+}
+
+prevBtn.addEventListener('click', prevSlide);
+nextBtn.addEventListener('click', nextSlide);
+
+// Touch/Swipe support
+let touchStartX = 0;
+let touchEndX = 0;
+
+track.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+});
+
+track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchStartX - touchEndX > 50) {
+        nextSlide();
+    }
+    if (touchEndX - touchStartX > 50) {
+        prevSlide();
+    }
+}
+
+// Auto-play (optional)
+let autoplayInterval;
+
+function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+        if (currentIndex >= slides.length - slidesPerView) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+        goToSlide(currentIndex);
+    }, 4000);
+}
+
+function stopAutoplay() {
+    clearInterval(autoplayInterval);
+}
+
+// Initialize
+updateSlidesPerView();
+createDots();
+goToSlide(0);
+startAutoplay();
+
+// Pause autoplay on hover
+const sliderWrapper = document.querySelector('.gallery-slider-wrapper');
+sliderWrapper.addEventListener('mouseenter', stopAutoplay);
+sliderWrapper.addEventListener('mouseleave', startAutoplay);
+
+// Responsive handling
+window.addEventListener('resize', () => {
+    updateSlidesPerView();
+    createDots();
+    currentIndex = 0;
+    goToSlide(0);
+});
+
+
+// FAQ Accordion Functionality - Add this to your <script> tag
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other FAQ items
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+            item.classList.remove('active');
+        } else {
+            item.classList.add('active');
+        }
+    });
+});
+
+
+
+
+
+// Lightweight Lightbox Functionality with LAZY LOADING
+(function() {
+    const modal = document.getElementById('lightboxModal');
+    const modalImage = document.getElementById('lightboxImage');
+    const closeBtn = document.getElementById('lightboxClose');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const zoomResetBtn = document.getElementById('zoomReset');
+    
+    let currentScale = 1;
+    const scaleStep = 0.2;
+    const minScale = 0.5;
+    const maxScale = 5;
+    
+    // Create loading indicator dynamically
+    const loadingIndicator = document.createElement('div');
+    loadingIndicator.className = 'lightbox-loading';
+    loadingIndicator.innerHTML = '⏳ Loading High-Res Image...';
+    modal.appendChild(loadingIndicator);
+    
+    // Open lightbox when clicking gallery images
+    const galleryCards = document.querySelectorAll('.slide-card');
+    galleryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const imageUrl = this.getAttribute('data-image');
+            if (imageUrl) {
+                // Show modal immediately
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Show loading indicator
+                loadingIndicator.style.display = 'flex';
+                modalImage.style.opacity = '0';
+                modalImage.style.display = 'none';
+                
+                // Lazy load the large image
+                const img = new Image();
+                
+                img.onload = function() {
+                    // Image loaded successfully
+                    modalImage.src = imageUrl;
+                    modalImage.style.display = 'block';
+                    setTimeout(() => {
+                        modalImage.style.opacity = '1';
+                        loadingIndicator.style.display = 'none';
+                    }, 100);
+                    currentScale = 1;
+                    modalImage.style.transform = `scale(${currentScale})`;
+                };
+                
+                img.onerror = function() {
+                    // Handle load error
+                    loadingIndicator.innerHTML = '❌ Failed to Load Image';
+                    loadingIndicator.style.color = '#ff4444';
+                    setTimeout(() => {
+                        closeLightbox();
+                    }, 2000);
+                };
+                
+                // Start loading
+                img.src = imageUrl;
+            }
+        });
+    });
+    
+    // Close lightbox
+    function closeLightbox() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        loadingIndicator.style.display = 'none';
+        loadingIndicator.innerHTML = '⏳ Loading High-Res Image...';
+        loadingIndicator.style.color = '#00d4ff';
+        setTimeout(() => {
+            modalImage.src = '';
+            modalImage.style.opacity = '1';
+            modalImage.style.display = 'block';
+            currentScale = 1;
+        }, 300);
+    }
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Close when clicking outside image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeLightbox();
+        }
+    });
+    
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+    
+    // Zoom In
+    zoomInBtn.addEventListener('click', function() {
+        if (currentScale < maxScale) {
+            currentScale += scaleStep;
+            modalImage.style.transform = `scale(${currentScale})`;
+        }
+    });
+    
+    // Zoom Out
+    zoomOutBtn.addEventListener('click', function() {
+        if (currentScale > minScale) {
+            currentScale -= scaleStep;
+            modalImage.style.transform = `scale(${currentScale})`;
+        }
+    });
+    
+    // Reset Zoom
+    zoomResetBtn.addEventListener('click', function() {
+        currentScale = 1;
+        modalImage.style.transform = `scale(${currentScale})`;
+    });
+    
+    // Touch/Pinch zoom for mobile
+    let initialDistance = 0;
+    let initialScale = 1;
+    
+    modalImage.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            initialDistance = getDistance(e.touches[0], e.touches[1]);
+            initialScale = currentScale;
+        }
+    });
+    
+    modalImage.addEventListener('touchmove', function(e) {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            const currentDistance = getDistance(e.touches[0], e.touches[1]);
+            const scale = (currentDistance / initialDistance) * initialScale;
+            
+            if (scale >= minScale && scale <= maxScale) {
+                currentScale = scale;
+                modalImage.style.transform = `scale(${currentScale})`;
+            }
+        }
+    });
+    
+    function getDistance(touch1, touch2) {
+        const dx = touch1.clientX - touch2.clientX;
+        const dy = touch1.clientY - touch2.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+})();
+
+
+window.preprocessEmojiEnhance = function(file, {
+  portraitWidth = 1080,
+  portraitHeight = 1354,
+  toneBrightness = 0.8,
+  toneRGBA = 'rgba(244,233,50,0.26)',
+  unsharpRadius = 53,
+  unsharpStrength = 2.9,
+  finalFilter = 'brightness(1.18) contrast(1.05)',
+  overlaySrc = ''
+} = {}) {
+
+return new Promise((resolve, reject) => {
+
+  const modal = document.getElementById("preCropModal");
+  const img = document.getElementById("preCropImage");
+  const closeBtn = document.getElementById("instaCloseBtn");
+  const doneBtn = document.getElementById("preCropDone");
+
+  let cropper;
+
+  const url = URL.createObjectURL(file);
+  img.src = url;
+  modal.style.display = "flex";
+
+  closeBtn.onclick = () => { modal.style.display="none"; cropper?.destroy(); };
+
+  setTimeout(() => {
+    cropper = new Cropper(img, {
+      aspectRatio: portraitWidth / portraitHeight,
+      viewMode: 1,
+      background: false,
+      dragMode: "move",
+      autoCropArea: 1,
+      movable: true,
+      zoomable: true,
+      cropBoxMovable: false,
+      cropBoxResizable: false
+    });
+  }, 80);
+
+  // Toolbar actions
+  rotateBtn.onclick = () => cropper.rotate(90);
+
+  flipHBtn.onclick = () => {
+    let scaleX = cropper.getData().scaleX || 1;
+    cropper.scaleX(scaleX * -1);
+  };
+
+  flipVBtn.onclick = () => {
+    let scaleY = cropper.getData().scaleY || 1;
+    cropper.scaleY(scaleY * -1);
+  };
+
+  zoomInBtn.onclick = () => cropper.zoom(0.1);
+  zoomOutBtn.onclick = () => cropper.zoom(-0.1);
+
+  resetBtn.onclick = () => cropper.reset();
+
+
+  // Done button
+  doneBtn.onclick = () => {
+    
+// ✅ SHOW LOADER INSTANTLY & DISABLE BUTTON
+  const loader = document.getElementById('mosaicLoader');
+  if (loader) loader.classList.add('active');
+  
+  doneBtn.disabled = true;
+  doneBtn.style.opacity = '0.5';
+  doneBtn.style.cursor = 'not-allowed';
+  
+  // Small delay to ensure loader renders before heavy processing
+  setTimeout(() => {
+     try {
+      
+      const cropped = cropper.getCroppedCanvas({ width: portraitWidth, height: portraitHeight });
+
+      const temp = document.createElement("canvas");
+      temp.width = portraitWidth;
+      temp.height = portraitHeight;
+      const tctx = temp.getContext("2d");
+
+      tctx.filter = `brightness(${toneBrightness})`;
+      tctx.drawImage(cropped, 0, 0);
+      tctx.globalCompositeOperation = "multiply";
+      tctx.fillStyle = toneRGBA;
+      tctx.fillRect(0, 0, temp.width, temp.height);
+      tctx.globalCompositeOperation = "source-over";
+      tctx.filter = "none";
+
+      const fxCanvas = fx.canvas();
+      const tex = fxCanvas.texture(temp);
+      fxCanvas.draw(tex).unsharpMask(unsharpRadius, unsharpStrength).update();
+
+      const out = document.createElement("canvas");
+      out.width = portraitWidth;
+      out.height = portraitHeight;
+      const octx = out.getContext("2d");
+
+      octx.drawImage(fxCanvas, 0, 0);
+
+      if (window.__overlayImage && overlaySrc) {
+        octx.globalCompositeOperation = "overlay";
+        octx.drawImage(window.__overlayImage, 0, 0, out.width, out.height);
+        octx.globalCompositeOperation = "source-over";
+      }
+
+      modal.style.display = "none";
+      cropper.destroy();
+      // ✅ RE-ENABLE BUTTON AFTER PROCESSING
+      doneBtn.disabled = false;
+      doneBtn.style.opacity = '1';
+      doneBtn.style.cursor = 'pointer';
+      
+      resolve(out);
+
+    } catch(err){
+      console.error(err);
+      // ✅ RE-ENABLE BUTTON ON ERROR TOO
+      doneBtn.disabled = false;
+      doneBtn.style.opacity = '1';
+      doneBtn.style.cursor = 'pointer';
+      reject(err);
+    }
+  }, 100);
+  };
+  
+
+});
+};
+
+// preload overlay
+window.__overlayImage = null;
+(function(){
+  const overlay = new Image();
+  overlay.crossOrigin = "anonymous";
+  overlay.src = "https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/overlay.png";
+  overlay.onload = () => window.__overlayImage = overlay;
+})();
+
+// Close modal button
+document.getElementById('mosaicCloseBtn')?.addEventListener('click', () => {
+    const modal = document.getElementById('mosaicModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+// ✅ ADD ONLY THIS ONE LINE:
+    document.getElementById('imageUpload').value = '';
+    
+});
+
+
+document.getElementById("about-cta-btn").addEventListener("click", function () {
+    document.getElementById("imageUpload").click();
+});
+
+
+window.openCanvasLightbox = function() {
+    const canvas = document.getElementById('mosaicCanvas');
+    if (!canvas) return;
+    
+    const modal = document.getElementById('lightboxModal');
+    const modalImage = document.getElementById('lightboxImage');
+    const loadingIndicator = document.querySelector('.lightbox-loading');
+    
+    // Show modal + loading immediately
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    if (loadingIndicator) {
+        loadingIndicator.style.display = 'flex';
+        loadingIndicator.innerHTML = '⏳ Loading Full Resolution...';
+    }
+    modalImage.style.opacity = '0';
+    
+    // Convert canvas (takes time)
+    setTimeout(() => {
+        const dataUrl = canvas.toDataURL('image/png', 1.0);
+        
+        modalImage.src = dataUrl;
+        modalImage.style.transform = 'scale(1)';
+        
+        modalImage.onload = function() {
+            modalImage.style.opacity = '1';
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+        };
+    }, 50);
+    
+    
+};
+
+
+
+
+// Sync mobile buttons with desktop buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const desktopStandard = document.getElementById('downloadStandard');
+    const desktopUltraHD = document.getElementById('downloadUltraHD');
+    const mobileStandard = document.querySelector('.downloadStandard-mobile');
+    const mobileUltraHD = document.querySelector('.downloadUltraHD-mobile');
+    
+    // Forward clicks from mobile buttons to desktop buttons
+    if (mobileStandard && desktopStandard) {
+        mobileStandard.addEventListener('click', function() {
+            desktopStandard.click();
+syncButtonStates(desktopStandard, mobileStandard);
+        });
+    }
+    
+    if (mobileUltraHD && desktopUltraHD) {
+        mobileUltraHD.addEventListener('click', function() {
+            desktopUltraHD.click();
+            syncButtonStates(desktopUltraHD, mobileUltraHD);
+        });
+    }
+});
+
+function syncButtonStates(desktopBtn, mobileBtn) {
+    // Watch for changes in desktop button and copy to mobile button
+    const observer = new MutationObserver(() => {
+        mobileBtn.innerHTML = desktopBtn.innerHTML;
+        mobileBtn.disabled = desktopBtn.disabled;
+        mobileBtn.style.opacity = desktopBtn.style.opacity;
+        mobileBtn.style.cursor = desktopBtn.style.cursor;
+    });
+    
+    observer.observe(desktopBtn, { 
+        childList: true, 
+        subtree: true,
+        attributes: true,
+        characterData: true
+    });
+}
+
+
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Emoji Mosaic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EMOJI MOSAIC is modern type of art image which is created by combining thousand of small emoji instead of pixels which results a beautiful art image."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to create an Emoji Mosaic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can create Emoji mosaic at Amosix, upload your image – crop it appropriately – click on Done – Your 2k mosaic is ready; click on Download button to download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Amosix is free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Amosix is fully free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Amosix safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Amosix is fully safe to use – Amosix does not collect any type of data or information from your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much time will be taken to generate a mosaic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It takes 2 to 5 seconds to generate a mosaic depending on your image."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which image formats are supported by Amosix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JPG, PNG and WEBP images are supported by Amosix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the resolution of the output?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Output resolution is 2K."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I customize Emojis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, customization of individual emojis is not available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does signup required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No signup is required to use Amosix."
+      }
+    }
+  ]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://amosix.in/",
+  "name": "Amosix",
+  "description": "Amosix is a free online Emoji Mosaic Generator that converts your images into beautiful emoji art instantly.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Amosix"
+  }
+}
+</script>
+
+<!-- ============================================
+     BREADCRUMB SCHEMA - For Site Navigation
+     ============================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://amosix.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Examples",
+      "item": "https://amosix.in/#gallery-sec"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Features",
+      "item": "https://amosix.in/#features-sec"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "How It Works",
+      "item": "https://amosix.in/#how-it"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "About Tool",
+      "item": "https://amosix.in/#abt-tool"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "FAQ",
+      "item": "https://amosix.in/#faq-sec"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Emoji Mosaic Generator",
+  "url": "https://amosix.in",
+  "description": "Free online emoji mosaic generator. Upload a photo and convert it into emoji art instantly.",
+  "applicationCategory": "ImageEditing",
+  "operatingSystem": "All",
+  "image": "https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/banner.webp"
+}
+</script>
+
+<!-- ============================================
+     HOWTO SCHEMA - Step-by-Step Guide
+     ============================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Create an Emoji Mosaic",
+  "description": "Transform any photo into stunning emoji mosaic art in 4 simple steps using Amosix's free online tool. No signup required, instant generation in 2-5 seconds.",
+  
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/gallery-1.webp",
+    "height": "1200",
+    "width": "1200"
+  },
+
+  "totalTime": "PT1M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Amosix Emoji Mosaic Generator"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Your Photo (JPG, PNG, or WEBP)"
+    }
+  ],
+
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Digital Photo or Image"
+    }
+  ],
+
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Steps to Create Emoji Mosaic",
+      "text": "Upload your image, crop appropriately, generate the emoji mosaic, and download the final artwork in high quality using Amosix. All steps are shown in the combined image.",
+      "url": "https://amosix.in/#how-it",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://pub-158fe245ad374907b7bb850980fbef49.r2.dev/how-to.webp",
+        "height": "1200",
+        "width": "900"
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- Cropper.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"/>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+<!-- GLFX -->
+<script async src="https://evanw.github.io/glfx.js/glfx.js"></script>
+
+</body>
+</html>
